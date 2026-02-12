@@ -7,8 +7,7 @@ WORKDIR /src
 
 COPY . .
 RUN CGO_ENABLED=0 GOOS=$TARGETOS GOARCH=$TARGETARCH go build \
-      -tags goolm -trimpath -buildvcs=false -ldflags="-buildid=" -o /out/lightning ./cmd/lightning/ && \
-      touch -d "$SOURCE_DATE_STR" /out/lightning
+      -tags goolm -trimpath -buildvcs=false -ldflags="-buildid=" -o /out/lightning ./cmd/lightning/
 
 FROM scratch
 
